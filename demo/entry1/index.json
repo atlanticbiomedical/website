@@ -1,0 +1,11 @@
+{
+	"id": "entry1",
+	"title": "CORPORATE HEADQUARTERS",
+	"body": "AB's Home",
+	"header": "/demo/entry1/image.jpg",
+	"images": [
+		"/demo/entry1/image.jpg",
+		"/demo/entry1/image.jpg",
+		"/demo/entry1/image.jpg"
+	]
+}

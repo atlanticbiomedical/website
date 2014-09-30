@@ -1,0 +1,6 @@
+<img ng-src="{{post.header}}">
+<div class="title">{{post.title}}</div>
+<div class="body">{{post.body}}</div>
+<div class="images">
+	<img ng-repeat="image in images track by $index" ng-src="{{image}}">
+</div>
