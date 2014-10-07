@@ -2,12 +2,12 @@
 	<div ng-repeat="post in posts" class="masonry-brick">
 		<div class="box col3">
 			<div class="thumbnail">
-				<img class="img-rounded" ng-src="{{post.image}}">
+				<img class="img-rounded" ng-show="post.image" ng-src="/images/{{post.image}}">
 				<div class="caption text-center">
 					<h3>{{post.title}}</h3>
-					<p>{{post.body}}</p>
+					<p>{{post.preview}}</p>
 					<p>
-						<a ui-sref="site.details(post)" ng-show="post.more" class="btn btn-default" role="button">Read More</a>
+						<a ui-sref="site.details(post)" ng-show="showMore(post)" class="btn btn-default" role="button">Read More</a>
 					</p>
 				</div>
 			</div>

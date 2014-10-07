@@ -7,8 +7,8 @@ angular.module('biomed-frontend', [
 
 ])
 .factory('Posts', function($resource) {
-	return $resource('/api/:id',
-		{ id: '@id' }
+	return $resource('/api/v1/posts/:_id',
+		{ '_id': '@_id' }
 	);
 })
 .config(function($urlRouterProvider, $locationProvider) {
@@ -25,25 +25,34 @@ angular.module('biomed-frontend', [
             templateUrl: 'app/list.html',
             resolve: {
                 posts: function(Posts) {
-                    return Posts.query();
+                    return Posts.query({
+                        'status': 'posted',
+                        'sort': '-createdOn',
+                    });
                 }
             },
             controller: function($scope, posts, $timeout) {
                 $scope.posts = posts;
+
+                $scope.showMore = function(post) {
+                    return post.details || post.gallery.length > 0;
+                }
             }
         })
         .state('site.details', {
-            url: '/posts/:id',
+            url: '/posts/:_id',
             templateUrl: 'app/details.html',
             resolve: {
                 post: function(Posts, $stateParams) {
-                    return Posts.get($stateParams);
+                    return Posts.get({
+                        '_id': $stateParams._id
+                    });
                 }
             },
             controller: function($scope, post) {
             	post.$promise.then(function() {
             		$scope.post = post;
-            		$scope.images = post.images;
+            		$scope.gallery = post.gallery;
             	});
             }
         });

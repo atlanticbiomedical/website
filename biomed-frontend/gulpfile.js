@@ -103,18 +103,24 @@ function startExpress() {
 
     app.use(require('connect-livereload')());
 
+/*
     app.use('/api', express.static(__dirname + '/demo', {
         index: ['index.json']
     }));
     app.use('/demo', express.static(__dirname + '/demo'));
-    app.use(express.static('build'));
+*/
 
-/*
     app.all('/api/*', function(req, res) {
-        var url = 'http://localhost:8080' + req.url;
+        var url = 'http://new.atlb.co/' + req.url;
         req.pipe(request(url)).pipe(res);
     });
-*/
+
+    app.all('/images/*', function(req, res) {
+        var url = 'http://new.atlb.co/' + req.url;
+        req.pipe(request(url)).pipe(res);
+    });
+
+    app.use(express.static('build'));
 
     app.all('/*', function(req, res) {
         res.sendFile('index.html', { root: 'build' });

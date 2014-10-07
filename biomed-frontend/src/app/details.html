@@ -1,6 +1,7 @@
-<img ng-src="{{post.header}}">
+<img ng-show="post.image" ng-src="/images/{{post.image}}">
 <div class="title">{{post.title}}</div>
-<div class="body">{{post.body}}</div>
+<div ng-hide="post.details" class="preview">{{post.preview}}</div>
+<div class="details">{{post.details}}</div>
 <div class="images">
-	<img ng-repeat="image in images track by $index" ng-src="{{image}}">
+	<img ng-repeat="image in gallery track by $index" ng-src="/images/{{image}}">
 </div>
