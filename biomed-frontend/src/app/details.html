@@ -1,17 +1,3 @@
-<script>
-			$(document).ready(function(){
-				//Examples of how to assign the Colorbox event to elements
-				$(".group1").colorbox({rel:'group1'});
-				$(".callbacks").colorbox({
-					onOpen:function(){ alert('onOpen: colorbox is about to open'); },
-					onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
-					onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
-					onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
-					onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
-				});
-			});
-		</script>
-
 <div class="row">
 	<div class="small-8 small-centered columns">
 		<div class="title"><h1>{{post.title}}</h1></div>
@@ -29,9 +15,9 @@
 	</div>
 </div>
 <div class="row">
-	<div class="small-6 small-centered columns">
-		<div masonry>
-			<a class="group1" href="/images/{{image}}"><img class="large-4 large-centered columns masonry-brick" ng-repeat="image in gallery track by $index" ng-src="/images/{{image}}"></a>
-		</div>
+	<div class="medium-4 medium-centered columns">
+		<ul class="clearing-thumbs small-block-grid-4" data-clearing>
+			<li><a href="/images/{{image}}"><img ng-repeat="image in gallery track by $index" ng-src="/images/{{image}}"></a></li>
+		</ul>
 	</div>
 </div>
