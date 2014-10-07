@@ -21,6 +21,9 @@ gulp.task('clean', function() {
 gulp.task('vendor', function() {
     gulp.src([
             'vendor/jquery/dist/jquery.min.js',
+            'vendor/foundation/js/vendor/modernizr.js',
+            'vendor/foundation/js/foundation.js',
+            'vendor/foundation/js/foundation/foundation.clearing.js',
             'vendor/angular/angular.min.js',
             'vendor/angular-loading-bar/build/loading-bar.js',
             'vendor/angular-resource/angular-resource.js',

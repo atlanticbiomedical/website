@@ -1,23 +1,16 @@
 <div class="row">
 	<div class="small-8 small-centered columns">
 		<div class="title"><h1>{{post.title}}</h1></div>
-	</div>
-</div>
-<div class="row">
-	<div class="small-8 small-centered columns">
 		<img ng-show="post.image" ng-src="/images/{{post.image}}"><hr>
-	</div>
-</div>
-<div class="row">
-	<div class="small-7 small-centered columns">
 		<div ng-hide="post.details" class="preview"><p>{{post.preview}}</p></div>
 		<div class="details"><p>{{post.details}}</p></div>
-	</div>
-</div>
-<div class="row">
-	<div class="medium-4 medium-centered columns">
 		<ul class="clearing-thumbs small-block-grid-4" data-clearing>
-			<li><a href="/images/{{image}}"><img ng-repeat="image in gallery track by $index" ng-src="/images/{{image}}"></a></li>
+			<li ng-repeat="image in gallery track by $index">
+				<a href="/images/{{image}}"><img ng-src="/images/{{image}}"></a>
+			</li>
 		</ul>
 	</div>
+    <script>
+        $(document).foundation();
+    </script>
 </div>
