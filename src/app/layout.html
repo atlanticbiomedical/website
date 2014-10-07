@@ -1,3 +1,160 @@
-<h1>Much Header</h1>
-<div ui-view></div>
-<h2>Very Footer</h2>
+<!--Top Bar -->
+<div class="fixed">
+    <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+                <h1 class="logo">
+
+                </h1>
+            </li>
+            <li class="toggle-topbar menu-icon">
+                <a href="#">
+                    menu
+                </a>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li>
+                    <a href="#" data-reveal-id="emailModal">Email us</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#" data-reveal-id="contactModal">Contact information</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">Login</a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</div>
+<!--Reveals-->
+<div id="emailModal" class="reveal-modal tiny" data-reveal>
+        <div class="row">
+            <div class="large-12 columnns">
+                <div class="small-12 columns">
+                <h2>Email us:</h2>
+                </div>
+            </div>
+        </div>
+        <form action="#" method="POST">
+            <div class="row">
+                <div class="large-12 columns">
+                  <div class="row collapse prefix-radius">
+                    <div class="small-4 columns">
+                      <span class="prefix">Name</span>
+                    </div>
+                    <div class="small-8 columns">
+                      <input type="text" placeholder="Your Name">
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                  <div class="row collapse prefix-radius">
+                    <div class="small-4 columns">
+                      <span class="prefix">Email</span>
+                    </div>
+                    <div class="small-8 columns">
+                      <input type="text" placeholder="Your@email.com">
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                  <div class="row collapse prefix-radius">
+                    <div class="small-4 columns">
+                      <span class="prefix">Message</span>
+                    </div>
+                    <div class="small-8 columns">
+                      <textarea placeholder="Your Message"></textarea>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <a href="#" class="button expand">Submit</a>
+                </div>
+            </div>
+            
+        </form>
+        <a class="close-reveal-modal">×</a>
+    </div>
+    <div id="contactModal" class="reveal-modal small" data-reveal>
+        <div class="row">
+            <div class="medium-12 columns">
+                <ul class="no-bullet">
+                    <li><h4>Address:</h4></li>
+                    <ul class="square">
+                        <li>4707 Benson Ave #101, Baltimore, MD 21227</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-12 columns">
+                <a href="https://www.google.com/maps/place/Atlantic+Biomedical+Company/@39.256972,-76.684837,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x69ce4b772564cd53" target="new"><img src="img/map.png" width="100%"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-12 columns">
+                <a href="tel:18005508310" class="button expand">Call us: 1800-550-8310</a>
+            </div>
+        </div>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+<!-- /Reveals -->
+<!-- /Top bar -->
+<!-- Content -->
+	<div class="content-wrapper">
+        <section id="main-content">
+            <div class="row">
+            	<!-- container -->
+                <div id="container" class="large-12 columns transitions-enabled large-centered clearfix">
+                    <div ui-view></div>
+                </div>
+                <!--/container -->
+            </div>
+        </section>
+    </div>
+<!-- Content -->
+<div class="page-footer-bottom">
+    <div class="row">
+        <div class="medium-4 medium-4 push-8 columns">
+
+            <ul class="home-social">
+                <li>
+                    <a href="http://www.twitter.com/" class="twitter"></a>
+                </li>
+                <li>
+                    <a href="http://www.facebook.com/" class="facebook"></a>
+                </li>
+                <li>
+                    <a href="/contact" class="mail"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="medium-8 medium-8 pull-4 columns">
+            <ul class="site-links">
+                <li class="name">
+                    <a href="#">Atlantic Biomedical</a>
+                </li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#" data-reveal-id="contactModal">Contact</a>
+                </li>
+            </ul>
+            <p class="copyright">©2014 Atlantic Biomedical. All rights reserved.</p> 
+        </div>
+    </div>
+</div>

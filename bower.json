@@ -8,6 +8,9 @@
     "jquery": "~2.1.1",
     "lodash": "~2.4.1",
     "angular-loading-bar": "~0.5.2",
-    "foundation": "5.4.2"
+    "foundation": "5.4.2",
+    "masonry": "~3.1.5",
+    "angular-masonry": "~0.9.1",
+    "imagesloaded": "~3.1.8"
   }
 }

@@ -2,7 +2,9 @@ angular.module('biomed-frontend', [
     'templates',
     'ui.router',
     'ngResource',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'wu.masonry'
+
 ])
 .factory('Posts', function($resource) {
 	return $resource('/api/:id',

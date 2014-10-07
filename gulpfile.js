@@ -26,7 +26,10 @@ gulp.task('vendor', function() {
             'vendor/angular-resource/angular-resource.js',
             'vendor/angular-sanitize/angular-sanitize.js',
             'vendor/angular-ui-router/release/angular-ui-router.js',
-            'vendor/lodash/dist/lodash.js'
+            'vendor/lodash/dist/lodash.js',
+            'vendor/masonry/dist/masonry.pkgd.js',
+            'vendor/angular-masonry/angular-masonry.js',
+            'vendor/imagesloaded/imagesloaded.pkgd.js'
         ])
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat('vendor.js'))
