@@ -6,17 +6,17 @@
             <li class="name">
                 <a href="/"><h1 class="logo"></h1></a>
             </li>
-            <!--<li class="toggle-topbar menu-icon">
+            <li class="toggle-topbar menu-icon">
                 <a href="#">
                     menu
                 </a>
-            </li>-->
+            </li>
         </ul>
 
         <section class="top-bar-section">
             <!-- Right Nav Section -->
             <ul class="right">
-                <!--<li>
+                <li>
                     <a href="#" data-reveal-id="emailModal">Email us</a>
                 </li>
                 <li class="divider"></li>
@@ -25,8 +25,8 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#">Login</a>
-                </li>-->
+                    <a href="http://site.atlb.co">Tech Login</a>
+                </li>
             </ul>
         </section>
     </nav>
@@ -40,50 +40,30 @@
                 </div>
             </div>
         </div>
-        <form action="#" method="POST">
-            <div class="row">
-                <div class="large-12 columns">
-                  <div class="row collapse prefix-radius">
-                    <div class="small-4 columns">
-                      <span class="prefix">Name</span>
-                    </div>
-                    <div class="small-8 columns">
-                      <input type="text" placeholder="Your Name">
-                    </div>
-                  </div>
-                </div>
+
+
+        <form data-abide>
+            <div class="name-field">
+                <label>Your name <small>required</small>
+                   <input type="text" required pattern="[a-zA-Z]+">
+                </label>
+                <small class="error">Name is required and must be a string.</small>
             </div>
-            <div class="row">
-                <div class="large-12 columns">
-                  <div class="row collapse prefix-radius">
-                    <div class="small-4 columns">
-                      <span class="prefix">Email</span>
-                    </div>
-                    <div class="small-8 columns">
-                      <input type="text" placeholder="Your@email.com">
-                    </div>
-                  </div>
-                </div>
+            <div class="email-field">
+                <label>Email <small>required</small>
+                    <input type="email" required>
+                </label>
+                <small class="error">An email address is required.</small>
             </div>
-            <div class="row">
-                <div class="large-12 columns">
-                  <div class="row collapse prefix-radius">
-                    <div class="small-4 columns">
-                      <span class="prefix">Message</span>
-                    </div>
-                    <div class="small-8 columns">
-                      <textarea placeholder="Your Message"></textarea>
-                    </div>
-                  </div>
-                </div>
+            <div>
+                <label>Message
+                    <textarea></textarea>
+                </label>
             </div>
-            <div class="row">
-                <div class="large-12 columns">
-                    <a href="#" class="button expand">Submit</a>
-                </div>
-            </div>
-            
+            <button type="submit">Submit</button>
         </form>
+
+
         <a class="close-reveal-modal">×</a>
     </div>
     <div id="contactModal" class="reveal-modal small" data-reveal>
@@ -99,7 +79,7 @@
         </div>
         <div class="row">
             <div class="medium-12 columns">
-                <a href="https://www.google.com/maps/place/Atlantic+Biomedical+Company/@39.256972,-76.684837,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x69ce4b772564cd53" target="new"><img src="img/map.png" width="100%"></a>
+                <a href="https://www.google.com/maps/place/Atlantic+Biomedical+Company/@39.256972,-76.684837,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x69ce4b772564cd53" target="new"><img src="http://maps.google.com/staticmap?center=39.25648,-76.68433&zoom=15&size=400x325&maptype=mobile&markers=39.25648,-76.68433,red&key=ABQIAAAAqQJ-gFBKUbBLaFN1HQF4KBQ_k2Fxd8XZtbWUsvz5Vrarxzf2SRSh7DRXLQmAZ-6XwtrmMhkINGT27A&sensor=false" width="100%"></a>
             </div>
         </div>
         <div class="row">
@@ -155,4 +135,7 @@
             <p class="copyright">©2014 Atlantic Biomedical. All rights reserved.</p> 
         </div>
     </div>
+    <script>
+        $(document).foundation();
+    </script>
 </div>

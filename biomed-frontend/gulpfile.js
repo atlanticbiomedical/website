@@ -23,6 +23,7 @@ gulp.task('vendor', function() {
             'vendor/jquery/dist/jquery.min.js',
             'vendor/foundation/js/vendor/modernizr.js',
             'vendor/foundation/js/foundation.js',
+            'vendor/foundation/js/foundation/foundation.abide.js',
             'vendor/foundation/js/foundation/foundation.clearing.js',
             'vendor/angular/angular.min.js',
             'vendor/angular-loading-bar/build/loading-bar.js',
