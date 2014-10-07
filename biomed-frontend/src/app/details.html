@@ -1,7 +1,37 @@
-<img ng-show="post.image" ng-src="/images/{{post.image}}">
-<div class="title">{{post.title}}</div>
-<div ng-hide="post.details" class="preview">{{post.preview}}</div>
-<div class="details">{{post.details}}</div>
-<div class="images">
-	<img ng-repeat="image in gallery track by $index" ng-src="/images/{{image}}">
+<script>
+			$(document).ready(function(){
+				//Examples of how to assign the Colorbox event to elements
+				$(".group1").colorbox({rel:'group1'});
+				$(".callbacks").colorbox({
+					onOpen:function(){ alert('onOpen: colorbox is about to open'); },
+					onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
+					onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
+					onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
+					onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
+				});
+			});
+		</script>
+
+<div class="row">
+	<div class="small-8 small-centered columns">
+		<div class="title"><h1>{{post.title}}</h1></div>
+	</div>
+</div>
+<div class="row">
+	<div class="small-8 small-centered columns">
+		<img ng-show="post.image" ng-src="/images/{{post.image}}"><hr>
+	</div>
+</div>
+<div class="row">
+	<div class="small-7 small-centered columns">
+		<div ng-hide="post.details" class="preview"><p>{{post.preview}}</p></div>
+		<div class="details"><p>{{post.details}}</p></div>
+	</div>
+</div>
+<div class="row">
+	<div class="small-6 small-centered columns">
+		<div masonry>
+			<a class="group1" href="/images/{{image}}"><img class="large-4 large-centered columns masonry-brick" ng-repeat="image in gallery track by $index" ng-src="/images/{{image}}"></a>
+		</div>
+	</div>
 </div>

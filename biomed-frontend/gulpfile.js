@@ -29,7 +29,8 @@ gulp.task('vendor', function() {
             'vendor/lodash/dist/lodash.js',
             'vendor/masonry/dist/masonry.pkgd.js',
             'vendor/angular-masonry/angular-masonry.js',
-            'vendor/imagesloaded/imagesloaded.pkgd.js'
+            'vendor/imagesloaded/imagesloaded.pkgd.js',
+            'vendor/jquery-colorbox/jquery.colorbox.js'
         ])
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(concat('vendor.js'))
