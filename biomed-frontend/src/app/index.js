@@ -3,8 +3,8 @@ angular.module('biomed-frontend', [
     'ui.router',
     'ngResource',
     'angular-loading-bar',
-    'wu.masonry'
-
+    'wu.masonry',
+    'mm.foundation'
 ])
 .factory('Posts', function($resource) {
 	return $resource('/api/v1/posts/:_id',
@@ -56,4 +56,4 @@ angular.module('biomed-frontend', [
             	});
             }
         });
-});
+})

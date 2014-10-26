@@ -1,0 +1,32 @@
+<div id="emailModal" class="tiny">
+    <div class="row">
+        <div class="large-12 columnns">
+            <div class="small-12 columns">
+            <h2>Email us:</h2>
+            </div>
+        </div>
+    </div>
+
+    <form data-abide ng-submit="send()">
+        <div class="name-field">
+            <label>Your name <small>required</small>
+               <input type="text" required pattern="[a-zA-Z]+" ng-model="model.name">
+            </label>
+            <small class="error">Name is required and must be a string.</small>
+        </div>
+        <div class="email-field">
+            <label>Email <small>required</small>
+                <input type="email" required ng-model="model.email">
+            </label>
+            <small class="error">An email address is required.</small>
+        </div>
+        <div>
+            <label>Message
+                <textarea ng-model="model.message"></textarea>
+            </label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <a class="close()">×</a>
+</div>

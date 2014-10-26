@@ -30,6 +30,8 @@ gulp.task('vendor', function() {
             'vendor/angular-resource/angular-resource.js',
             'vendor/angular-sanitize/angular-sanitize.js',
             'vendor/angular-ui-router/release/angular-ui-router.js',
+            'vendor/angular-foundation/mm-foundation.min.js',
+            'vendor/angular-foundation/mm-foundation-tpls.min.js',
             'vendor/lodash/dist/lodash.js',
             'vendor/masonry/dist/masonry.pkgd.js',
             'vendor/angular-masonry/angular-masonry.js',
@@ -47,7 +49,7 @@ gulp.task('js', function() {
         .pipe(sourcemaps.init())
         .pipe(templates({ standalone: true }));
 
-    var js = gulp.src(['src/**/imdex.js', 'src/**/*.js'])
+    var js = gulp.src(['src/**/index.js', 'src/**/*.js'])
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(concat('src.js'))

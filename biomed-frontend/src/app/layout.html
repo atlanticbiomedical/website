@@ -1,6 +1,6 @@
 <!--Top Bar -->
 <div class="fixed">
-    <nav class="top-bar" data-topbar>
+    <nav class="top-bar" data-topbar ng-controller="NavCtrl">
         <ul class="title-area">
             <!-- Title Area -->
             <li class="name">
@@ -21,7 +21,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#" data-reveal-id="emailModal">Email us</a>
+                    <a ng-click="showEmail()">Email us</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -36,40 +36,7 @@
     </nav>
 </div>
 <!--Reveals-->
-<div id="emailModal" class="reveal-modal tiny" data-reveal>
-        <div class="row">
-            <div class="large-12 columnns">
-                <div class="small-12 columns">
-                <h2>Email us:</h2>
-                </div>
-            </div>
-        </div>
 
-
-        <form data-abide>
-            <div class="name-field">
-                <label>Your name <small>required</small>
-                   <input type="text" required pattern="[a-zA-Z]+">
-                </label>
-                <small class="error">Name is required and must be a string.</small>
-            </div>
-            <div class="email-field">
-                <label>Email <small>required</small>
-                    <input type="email" required>
-                </label>
-                <small class="error">An email address is required.</small>
-            </div>
-            <div>
-                <label>Message
-                    <textarea></textarea>
-                </label>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-
-
-        <a class="close-reveal-modal">×</a>
-    </div>
     <div id="contactModal" class="reveal-modal small" data-reveal>
         <div class="row">
             <div class="medium-12 columns">
