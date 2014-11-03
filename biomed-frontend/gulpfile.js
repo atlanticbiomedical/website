@@ -118,12 +118,12 @@ function startExpress() {
 */
 
     app.all('/api/*', function(req, res) {
-        var url = 'http://new.atlb.co/' + req.url;
+        var url = 'http://atlanticbiomedical.com/' + req.url;
         req.pipe(request(url)).pipe(res);
     });
 
     app.all('/images/*', function(req, res) {
-        var url = 'http://new.atlb.co/' + req.url;
+        var url = 'http://atlanticbiomedical.com/' + req.url;
         req.pipe(request(url)).pipe(res);
     });
 
