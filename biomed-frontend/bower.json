@@ -13,6 +13,7 @@
     "angular-masonry": "~0.9.1",
     "imagesloaded": "~3.1.8",
     "jquery-colorbox": "~1.5.14",
-    "angular-foundation": "~0.4.0"
+    "angular-foundation": "~0.4.0",
+    "font-awesome": "~4.3.0"
   }
 }

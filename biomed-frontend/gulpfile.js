@@ -79,6 +79,7 @@ gulp.task('styles', function() {
         .pipe(sass({
             includePaths: [
                 'vendor/foundation/scss',
+                'vendor/font-awesome/scss'
             ],
 //            sourceComments: 'map'
         }))
