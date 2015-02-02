@@ -4,7 +4,8 @@ angular.module('biomed-frontend', [
     'ngResource',
     'angular-loading-bar',
     'wu.masonry',
-    'mm.foundation'
+    'mm.foundation',
+    'infinite-scroll'
 ])
 .factory('Posts', function($resource) {
 	return $resource('/api/v1/posts/:_id',
@@ -23,27 +24,41 @@ angular.module('biomed-frontend', [
         .state('site.list', {
             url: '/',
             templateUrl: 'app/list.html',
-            resolve: {
-                posts: function(Posts) {
-                    return Posts.query({
-                        'status': 'posted',
-                        'sort': '-postedOn',
-                    }).$promise;
-                }
-            },
-            controller: function($scope, posts, $timeout, $sce, $location, $anchorScroll) {
+            controller: function($scope, $timeout, $sce, $location, $anchorScroll, Posts) {
                 $scope.posts = [];
 
-                angular.forEach(posts, function(post) {
-                    if (post.previewHtml) {
-                        post.previewHtml = $sce.trustAsHtml(post.previewHtml);
-                    }
+                var deferred = false;
+                var more = true;
 
-                    $scope.posts.push(post);
-                });
+                var loadNextPage = function() {
+                    if (more && (!deferred || deferred.$resolved)) {
+                        var query = {
+                            'status': 'posted',
+                            'sort': '-postedOn',
+                            'limit': 10,
+                            'skip': $scope.posts.length
+                        };
+
+                        deferred = Posts.query(query, function(posts) {
+                            more = posts.length > 0;
+
+                            angular.forEach(posts, function(post) {
+                                if (post.previewHtml) {
+                                    post.previewHtml = $sce.trustAsHtml(post.previewHtml);
+                                }
+
+                                $scope.posts.push(post);
+                            });
+                        });
+                    }
+                }
 
                 $scope.showMore = function(post) {
                     return post.details || post.gallery.length > 0;
+                }
+
+                $scope.addMoreItems = function() {
+                    loadNextPage();
                 }
             }
         })
