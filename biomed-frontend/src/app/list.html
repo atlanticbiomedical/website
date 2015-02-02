@@ -1,15 +1,25 @@
+<div class="filter-header" ng-show="filter" ng-click="resetFilter()">
+<span class="fa fa-arrow-left"></span>
+#{{filter}}
+</div>
 <div class="masonry-container" masonry preserve-order masonry-options="{isFitWidth: true}" infinite-scroll="addMoreItems()" infinite-scroll-distance="2">
 	<div ng-repeat="post in posts" class="masonry-brick">
-		<div class="box col3">
-			<div class="thumbnail">
-				<img class="img-rounded" ng-show="post.image" ng-src="http://atlanticbiomedical.com:8001/unsafe/280x0/{{post.image}}">
-				<div class="caption text-center">
+		<div class="col3">
+			<div class="post">
+				<div class="tags">
+					<div ng-repeat="tag in post.tags" class="tag">
+						<span class="border">&nbsp;</span>
+						<a ng-click="filterByTag(tag)">#{{tag}}</a>
+					</div>
+				</div>
+				<img ng-show="post.image" ng-src="http://atlanticbiomedical.com:8001/unsafe/280x0/{{post.image}}">
+				<div class="post-content">
 					<h3>{{post.title}}</h3>
-					<p ng-if="!post.previewHtml" ng-bind="post.preview"></p>
-					<div ng-if="post.previewHtml" ng-bind-html="post.previewHtml"></div>
-					<p>
+					<div class="caption">
+						<p ng-if="!post.previewHtml" ng-bind="post.preview"></p>
+						<div ng-if="post.previewHtml" ng-bind-html="post.previewHtml"></div>
 						<a ui-sref="site.details(post)" ng-show="showMore(post)" class="btn btn-default" role="button">Read More</a>
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>

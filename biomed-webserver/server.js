@@ -24,7 +24,8 @@ var Post = new Schema({
     gallery: [
         { type: String }
     ],
-    status: { type: String }
+    status: { type: String },
+    tags: [{ type: String }]
 });
 var PostModel = mongoose.model('Post', Post);
 

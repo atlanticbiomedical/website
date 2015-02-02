@@ -29,6 +29,7 @@ angular.module('biomed-frontend', [
 
                 var deferred = false;
                 var more = true;
+                var filter = undefined;
 
                 var loadNextPage = function() {
                     if (more && (!deferred || deferred.$resolved)) {
@@ -38,6 +39,10 @@ angular.module('biomed-frontend', [
                             'limit': 10,
                             'skip': $scope.posts.length
                         };
+
+                        if ($scope.filter) {
+                            query['tags'] = $scope.filter;
+                        }
 
                         deferred = Posts.query(query, function(posts) {
                             more = posts.length > 0;
@@ -58,6 +63,18 @@ angular.module('biomed-frontend', [
                 }
 
                 $scope.addMoreItems = function() {
+                    loadNextPage();
+                }
+
+                $scope.filterByTag = function(tag) {
+                    $scope.filter = tag;
+                    $scope.posts = [];
+                    loadNextPage();
+                }
+
+                $scope.resetFilter = function() {
+                    $scope.filter = undefined;
+                    $scope.posts = [];
                     loadNextPage();
                 }
             }
