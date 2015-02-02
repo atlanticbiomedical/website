@@ -27,12 +27,20 @@ angular.module('biomed-frontend', [
                 posts: function(Posts) {
                     return Posts.query({
                         'status': 'posted',
-                        'sort': '-createdOn',
-                    });
+                        'sort': '-postedOn',
+                    }).$promise;
                 }
             },
-            controller: function($scope, posts, $timeout) {
-                $scope.posts = posts;
+            controller: function($scope, posts, $timeout, $sce, $location, $anchorScroll) {
+                $scope.posts = [];
+
+                angular.forEach(posts, function(post) {
+                    if (post.previewHtml) {
+                        post.previewHtml = $sce.trustAsHtml(post.previewHtml);
+                    }
+
+                    $scope.posts.push(post);
+                });
 
                 $scope.showMore = function(post) {
                     return post.details || post.gallery.length > 0;
@@ -46,14 +54,31 @@ angular.module('biomed-frontend', [
                 post: function(Posts, $stateParams) {
                     return Posts.get({
                         '_id': $stateParams._id
-                    });
+                    }).$promise;
                 }
             },
-            controller: function($scope, post) {
-            	post.$promise.then(function() {
-            		$scope.post = post;
-            		$scope.gallery = post.gallery;
-            	});
+            controller: function($scope, post, $sce) {
+                if (post.detailsHtml) {
+                    post.detailsHtml = $sce.trustAsHtml(post.detailsHtml);
+                }
+
+                $scope.post = post;
+           		$scope.gallery = post.gallery;
             }
         });
 })
+
+
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {
+        $('#return-to-top').fadeIn(200);
+    } else {
+        $('#return-to-top').fadeOut(200);
+    }
+});
+$('#return-to-top').click(function() {
+    $('body,html').animate({
+        scrollTop : 0
+    }, 500);
+});

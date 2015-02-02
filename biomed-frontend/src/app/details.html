@@ -3,7 +3,10 @@
 		<div class="title"><h1>{{post.title}}</h1></div>
 		<img class="mainimg" ng-show="post.image" ng-src="http://atlanticbiomedical.com:8001/unsafe/fit-in/500x500/smart/{{post.image}}"><hr>
 		<div ng-hide="post.details" class="preview"><p>{{post.preview}}</p></div>
-		<div class="details"><p>{{post.details}}</p></div>
+		<div class="details">
+			<p ng-if="!post.detailsHtml" ng-bind="post.details"></p>
+			<div ng-if="post.detailsHtml" ng-bind-html="post.detailsHtml"></div>
+		</div>
 		<ul class="clearing-thumbs small-block-grid-4" data-clearing>
 			<li ng-repeat="image in gallery track by $index">
 				<a href="http://atlanticbiomedical.com:8001/unsafe/{{image}}"><img ng-src="http://atlanticbiomedical.com:8001/unsafe/200x200/smart/{{image}}"></a>
