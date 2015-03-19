@@ -25,7 +25,8 @@ var Post = new Schema({
         { type: String }
     ],
     status: { type: String },
-    tags: [{ type: String }]
+    tags: [{ type: String }],
+    pages: [{ type: String }]
 });
 var PostModel = mongoose.model('Post', Post);
 

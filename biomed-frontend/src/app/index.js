@@ -22,10 +22,18 @@ angular.module('biomed-frontend', [
     		templateUrl: 'app/layout.html'
     	})
         .state('site.list', {
-            url: '/',
+            url: '/?page',
             templateUrl: 'app/list.html',
-            controller: function($scope, $timeout, $sce, $location, $anchorScroll, Posts) {
+            controller: function($scope, $timeout, $sce, $location, $anchorScroll, $stateParams, Posts) {
                 $scope.posts = [];
+
+                var page = $stateParams.page;
+                if (!page) {
+                    page = 'front';
+                }
+
+
+                console.log($stateParams);
 
                 var deferred = false;
                 var more = true;
@@ -34,6 +42,7 @@ angular.module('biomed-frontend', [
                 var loadNextPage = function() {
                     if (more && (!deferred || deferred.$resolved)) {
                         var query = {
+                            'pages': page,
                             'status': 'posted',
                             'sort': '-postedOn',
                             'limit': 10,
